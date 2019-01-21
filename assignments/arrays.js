@@ -138,6 +138,7 @@ for (let i = 0; i < inventory.length; i++) {
     inventory[i].car_make === 'Audi' || inventory[i].car_make === 'BMW' ? BMWAndAudi.push(inventory[i]) : i;
 }
 console.log(JSON.stringify(BMWAndAudi));
-
-
+// Solution with .filter:
+// let BMWAndAudi = inventory.filter(item => item.car_make === 'Audi'|| item.car_make === 'BMW');
+// console.log(JSON.stringify(BMWAndAudi));
 
