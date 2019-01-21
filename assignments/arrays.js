@@ -66,7 +66,7 @@ let inventory = [{"id":1,"car_make":"Lincoln","car_model":"Navigator","car_year"
 
 const findCarById = carId => {
     for (i = 0; i < inventory.length; i++) {
-       inventory[i].id === carId ? console.log(`Car 33 is a ${inventory[i].car_year} ${inventory[i].car_make} ${inventory[i].car_model}.`) : i;
+       inventory[i].id === carId ? console.log(`Car ${carId} is a ${inventory[i].car_year} ${inventory[i].car_make} ${inventory[i].car_model}.`) : i;
     }
 }
 findCarById(33);
@@ -133,11 +133,16 @@ console.log(getOldCars(2000));
 // ==== Challenge 6 ====
 // A buyer is interested in seeing only BMW and Audi cars within the inventory.  Return an array that only contains BMW and Audi cars.  Once you have populated the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
 
-let BMWAndAudi = [];
-for (let i = 0; i < inventory.length; i++) {
-    inventory[i].car_make === 'Audi' || inventory[i].car_make === 'BMW' ? BMWAndAudi.push(inventory[i]) : i;
+const checkCarMake = (arr) => {
+    let buyerInterest = [];
+    for (let i = 0; i < inventory.length; i++) {
+        arr.forEach(item => {
+            inventory[i].car_make === item ? buyerInterest.push(inventory[i]) : i;
+        });
+    }
+    return buyerInterest;
 }
-console.log(JSON.stringify(BMWAndAudi));
+console.log(JSON.stringify(checkCarMake(['Audi', 'BMW'])));
 // Solution with .filter:
 // let BMWAndAudi = inventory.filter(item => item.car_make === 'Audi'|| item.car_make === 'BMW');
 // console.log(JSON.stringify(BMWAndAudi));
